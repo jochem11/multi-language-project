@@ -1,0 +1,29 @@
+# Rust build output
+/target
+
+# Cargo lock (usually committed for apps, but optional)
+# Keep this if your service is an application
+#!Cargo.lock
+
+# Backup files
+**/*.rs.bk
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# IDE files
+.vscode/
+.idea/
+
+# Rust analyzer cache
+.rust-analyzer/
+
+# Generated binaries
+/mail-service

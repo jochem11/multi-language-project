@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: items-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: items-service
+  template:
+    metadata:
+      labels:
+        app: items-service
+    spec:
+      containers:
+        - name: items-service
+          image: items-service-image
+          ports:
+            - containerPort: 8082
+          resources:
+            limits:
+              memory: "1Gi"
+            requests:
+              memory: "512Mi"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: items-service
+spec:
+  type: ClusterIP
+  selector:
+    app: items-service
+  ports:
+    - protocol: TCP
+      port: 8082
+      targetPort: 8082

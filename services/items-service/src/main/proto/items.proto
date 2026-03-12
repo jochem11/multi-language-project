@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package items.v1;
+
+// These options are CRITICAL for your Java build
+option java_multiple_files = true;
+option java_package = "com.example.items_service.grpc";
+option java_outer_classname = "ItemsProto";
+
+service ItemsService {
+  rpc GetItem(GetItemRequest) returns (ItemResponse);
+}
+
+message GetItemRequest { string id = 1; }
+message ItemResponse { string id = 1; string name = 2; }
